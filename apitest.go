@@ -353,7 +353,7 @@ func (r *Request) Header(key, value string) *Request {
 func (r *Request) Headers(headers map[string]string) *Request {
 	for k, v := range headers {
 		normalizedKey := textproto.CanonicalMIMEHeaderKey(k)
-		r.headers[normalizedKey] = append(r.headers[normalizedKey], v)
+		r.headers[normalizedKey] = []string{v}
 	}
 	return r
 }
